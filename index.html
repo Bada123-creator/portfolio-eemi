@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio de Bada Diop — Développement Full Stack, Backend, Data et IA appliquée." />
+  <title>Bada Diop — Portfolio EEMI | Développement & IA</title>
+  <style>
+    :root{
+      --bg:#07111f;
+      --bg-soft:#0b1727;
+      --panel:rgba(255,255,255,.07);
+      --panel-2:rgba(255,255,255,.10);
+      --text:#f4f7fb;
+      --muted:#a9b7ca;
+      --accent:#41d7e8;
+      --accent-2:#6c7cff;
+      --line:rgba(255,255,255,.12);
+      --shadow:0 20px 70px rgba(0,0,0,.35);
+      --radius:22px;
+      --max:1180px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 15% 15%, rgba(65,215,232,.13), transparent 25%),
+        radial-gradient(circle at 85% 10%, rgba(108,124,255,.15), transparent 30%),
+        linear-gradient(180deg,#07111f 0%,#091423 45%,#07111f 100%);
+      overflow-x:hidden;
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%}
+    .container{width:min(var(--max),calc(100% - 40px));margin:auto}
+    .nav{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:blur(16px);
+      background:rgba(7,17,31,.72);
+      border-bottom:1px solid var(--line)
+    }
+    .nav-inner{height:72px;display:flex;align-items:center;justify-content:space-between}
+    .brand{font-weight:800;letter-spacing:.08em}
+    .brand span{color:var(--accent)}
+    .nav-links{display:flex;gap:24px;color:var(--muted);font-size:14px}
+    .nav-links a:hover{color:#fff}
+    .hero{
+      min-height:calc(100vh - 72px);
+      display:grid;align-items:center;position:relative;overflow:hidden
+    }
+    .hero-grid{
+      display:grid;grid-template-columns:1.25fr .75fr;gap:60px;align-items:center;
+      padding:80px 0
+    }
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:10px;
+      font-size:13px;text-transform:uppercase;letter-spacing:.16em;color:var(--accent);
+      font-weight:800
+    }
+    .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 22px var(--accent)}
+    h1{
+      font-size:clamp(46px,7vw,86px);line-height:.98;margin:18px 0 20px;
+      letter-spacing:-.045em
+    }
+    .gradient{
+      background:linear-gradient(90deg,var(--accent),#8ac7ff 40%,#9a8cff 80%);
+      -webkit-background-clip:text;background-clip:text;color:transparent
+    }
+    .hero p{
+      color:var(--muted);font-size:19px;line-height:1.7;max-width:760px;margin:0 0 28px
+    }
+    .cta-row{display:flex;flex-wrap:wrap;gap:14px}
+    .btn{
+      padding:14px 20px;border-radius:14px;font-weight:800;font-size:14px;
+      border:1px solid var(--line);transition:.25s ease;display:inline-flex;align-items:center;gap:9px
+    }
+    .btn.primary{background:linear-gradient(90deg,var(--accent),#63a7ff);color:#06101d;border:0}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,.25)}
+    .hero-card{
+      position:relative;border:1px solid var(--line);border-radius:30px;padding:26px;
+      background:linear-gradient(145deg,rgba(255,255,255,.10),rgba(255,255,255,.035));
+      box-shadow:var(--shadow);overflow:hidden
+    }
+    .hero-card::before{
+      content:"";position:absolute;inset:-40%;background:conic-gradient(from 180deg,transparent,rgba(65,215,232,.18),transparent 30%);
+      animation:spin 12s linear infinite
+    }
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .hero-card > *{position:relative;z-index:2}
+    .mini-title{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.14em}
+    .stack{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:18px}
+    .stack div{padding:16px;border-radius:16px;background:rgba(6,16,29,.55);border:1px solid var(--line)}
+    .stack b{display:block;font-size:14px;margin-bottom:6px}
+    .stack span{color:var(--muted);font-size:12px}
+    .scroll-cue{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);color:var(--muted);font-size:12px;letter-spacing:.1em}
+    .scroll-cue::after{content:"";display:block;width:1px;height:34px;margin:8px auto 0;background:linear-gradient(var(--accent),transparent)}
+    section{padding:100px 0}
+    .section-head{display:flex;justify-content:space-between;gap:24px;align-items:end;margin-bottom:38px}
+    .section-head h2{font-size:clamp(34px,5vw,56px);line-height:1.05;margin:0}
+    .section-head p{max-width:520px;color:var(--muted);line-height:1.7;margin:0}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{
+      border:1px solid var(--line);background:var(--panel);border-radius:var(--radius);
+      padding:24px;transition:.25s ease;box-shadow:0 8px 30px rgba(0,0,0,.12)
+    }
+    .card:hover{transform:translateY(-6px);background:var(--panel-2)}
+    .card h3{margin:10px 0 10px;font-size:20px}
+    .card p{color:var(--muted);line-height:1.65;font-size:14px}
+    .tag-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+    .tag{font-size:12px;padding:8px 10px;border-radius:999px;border:1px solid rgba(65,215,232,.22);color:#bdeff5;background:rgba(65,215,232,.07)}
+    .project-feature{
+      display:grid;grid-template-columns:1.15fr .85fr;gap:22px;
+      border:1px solid var(--line);background:linear-gradient(135deg,rgba(65,215,232,.08),rgba(108,124,255,.08));
+      padding:28px;border-radius:28px;box-shadow:var(--shadow)
+    }
+    .project-feature h3{font-size:38px;margin:0 0 12px}
+    .project-feature p{color:var(--muted);line-height:1.75}
+    .project-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+    .metric-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .metric{padding:18px;border-radius:18px;border:1px solid var(--line);background:rgba(7,17,31,.55)}
+    .metric strong{display:block;font-size:14px;margin-bottom:5px}
+    .metric span{color:var(--muted);font-size:13px}
+    .projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:22px}
+    .project-card{padding:24px;border-radius:22px;border:1px solid var(--line);background:var(--panel);position:relative;overflow:hidden}
+    .project-card::after{
+      content:"";position:absolute;width:120px;height:120px;border-radius:50%;right:-50px;top:-50px;background:rgba(65,215,232,.06)
+    }
+    .project-card h3{margin:8px 0;font-size:22px}
+    .project-card p{color:var(--muted);line-height:1.65}
+    .project-card .link{color:var(--accent);font-weight:800;display:inline-block;margin-top:10px}
+    .experience{
+      display:grid;grid-template-columns:.72fr 1.28fr;gap:22px;align-items:start
+    }
+    .quote{
+      border:1px solid var(--line);border-radius:24px;padding:26px;background:var(--panel);
+      position:sticky;top:100px
+    }
+    .quote p{font-size:21px;line-height:1.6;margin:0}
+    .quote small{display:block;color:var(--muted);margin-top:16px}
+    .timeline{display:grid;gap:14px}
+    .timeline-item{padding:22px;border-radius:20px;border:1px solid var(--line);background:var(--panel)}
+    .timeline-item strong{display:block;font-size:18px}
+    .timeline-item span{color:var(--accent);font-size:13px}
+    .timeline-item p{color:var(--muted);line-height:1.65;margin-bottom:0}
+    .contact{
+      text-align:center;padding:110px 0 120px
+    }
+    .contact h2{font-size:clamp(40px,6vw,70px);margin-bottom:16px}
+    .contact p{color:var(--muted);font-size:18px;max-width:700px;margin:0 auto 26px;line-height:1.7}
+    footer{padding:26px 0;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+    .footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    .reveal{opacity:0;transform:translateY(22px);transition:.7s ease}
+    .reveal.visible{opacity:1;transform:none}
+    .float1,.float2{
+      position:absolute;border-radius:50%;filter:blur(2px);pointer-events:none
+    }
+    .float1{width:260px;height:260px;background:rgba(65,215,232,.08);right:-80px;top:80px;animation:float 7s ease-in-out infinite}
+    .float2{width:180px;height:180px;background:rgba(108,124,255,.10);left:-50px;bottom:40px;animation:float 9s ease-in-out infinite reverse}
+    @keyframes float{50%{transform:translateY(-18px) translateX(12px)}}
+    @media(max-width:900px){
+      .hero-grid,.project-feature,.experience{grid-template-columns:1fr}
+      .cards{grid-template-columns:1fr 1fr}
+      .projects-grid{grid-template-columns:1fr}
+      .quote{position:static}
+      .nav-links{display:none}
+    }
+    @media(max-width:620px){
+      .cards{grid-template-columns:1fr}
+      .section-head{display:block}
+      .section-head p{margin-top:14px}
+      .stack{grid-template-columns:1fr}
+      .metric-grid{grid-template-columns:1fr}
+      .hero-grid{padding:50px 0}
+      section{padding:72px 0}
+      h1{font-size:52px}
+    }
+    @media(prefers-reduced-motion:reduce){
+      *{scroll-behavior:auto!important;animation:none!important;transition:none!important}
+      .reveal{opacity:1;transform:none}
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="brand">BADA <span>DIOP</span></div>
+      <div class="nav-links">
+        <a href="#profil">Profil</a>
+        <a href="#projets">Projets</a>
+        <a href="#experience">Expérience</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="float1"></div><div class="float2"></div>
+    <div class="container hero-grid">
+      <div class="reveal">
+        <div class="eyebrow"><span class="dot"></span> Candidature EEMI · Développement & IA</div>
+        <h1>Développeur <span class="gradient">Full Stack</span><br/>orienté Data & IA.</h1>
+        <p>
+          Titulaire d'une Licence MIASHS parcours MIAGE, je développe des applications web complètes :
+          backend, API, interfaces modernes, bases de données et intégration progressive de fonctionnalités d'IA.
+          Je souhaite poursuivre à l'EEMI dans un cursus de niveau Bac+3 à Bac+5, avec une orientation développement logiciel, web et IA.
+        </p>
+        <div class="cta-row">
+          <a class="btn primary" href="#projets">Voir mes projets ↓</a>
+          <a class="btn" href="https://github.com/Bada123-creator" target="_blank" rel="noopener">GitHub ↗</a>
+          <a class="btn" href="mailto:bada46218@gmail.com">Me contacter</a>
+        </div>
+      </div>
+
+      <div class="hero-card reveal">
+        <div class="mini-title">Stack actuelle</div>
+        <div class="stack">
+          <div><b>Backend</b><span>Python · Django · DRF · REST</span></div>
+          <div><b>Frontend</b><span>Next.js · React · TypeScript</span></div>
+          <div><b>Données</b><span>PostgreSQL · MySQL · SQL</span></div>
+          <div><b>DevOps</b><span>Git · Docker · Render · Vercel</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-cue">SCROLL</div>
+  </header>
+
+  <section id="profil">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <div class="eyebrow">Profil</div>
+          <h2>Un profil MIAGE très orienté pratique.</h2>
+        </div>
+        <p>
+          Je souhaite renforcer mon niveau en développement logiciel et apprendre à intégrer l'IA
+          de manière utile dans des produits numériques concrets.
+        </p>
+      </div>
+
+      <div class="cards">
+        <div class="card reveal">
+          <div class="mini-title">01 · Backend</div>
+          <h3>API & logique métier</h3>
+          <p>Django, Django REST Framework, authentification JWT, APIs REST et structuration des données métier.</p>
+          <div class="tag-row"><span class="tag">Python</span><span class="tag">Django</span><span class="tag">DRF</span></div>
+        </div>
+        <div class="card reveal">
+          <div class="mini-title">02 · Frontend</div>
+          <h3>Interfaces modernes</h3>
+          <p>Next.js, React, TypeScript, JavaScript, HTML/CSS et Bootstrap pour des interfaces claires et fonctionnelles.</p>
+          <div class="tag-row"><span class="tag">Next.js</span><span class="tag">React</span><span class="tag">TypeScript</span></div>
+        </div>
+        <div class="card reveal">
+          <div class="mini-title">03 · Data & qualité</div>
+          <h3>Données fiables</h3>
+          <p>SQL, PostgreSQL, MySQL, Pandas, qualité des données, modélisation et préparation pour l'exploitation analytique.</p>
+          <div class="tag-row"><span class="tag">SQL</span><span class="tag">PostgreSQL</span><span class="tag">Pandas</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projets">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <div class="eyebrow">Projet principal</div>
+          <h2>CareerAI</h2>
+        </div>
+        <p>
+          Une plateforme full stack d'aide à la recherche d'emploi, pensée pour évoluer vers
+          l'analyse de CV/offres et le matching assisté par IA.
+        </p>
+      </div>
+
+      <div class="project-feature reveal">
+        <div>
+          <h3>Une vraie application full stack.</h3>
+          <p>
+            J'ai conçu une architecture séparant clairement frontend et backend, avec authentification JWT,
+            API REST, données utilisateurs/offres/candidatures et déploiement sur Render/Vercel.
+          </p>
+          <div class="project-links">
+            <a class="btn primary" href="https://career-ai-mu-beige.vercel.app/" target="_blank" rel="noopener">Voir la démo ↗</a>
+            <a class="btn" href="https://github.com/Bada123-creator/career-ai" target="_blank" rel="noopener">Voir le code ↗</a>
+          </div>
+        </div>
+        <div class="metric-grid">
+          <div class="metric"><strong>Frontend</strong><span>Next.js + TypeScript</span></div>
+          <div class="metric"><strong>Backend</strong><span>Django REST Framework</span></div>
+          <div class="metric"><strong>Database</strong><span>PostgreSQL</span></div>
+          <div class="metric"><strong>Auth</strong><span>JWT access / refresh</span></div>
+        </div>
+      </div>
+
+      <div class="projects-grid">
+        <div class="project-card reveal">
+          <div class="mini-title">Systèmes d'information</div>
+          <h3>PGI pour une PME</h3>
+          <p>Analyse des besoins, modélisation et développement d'un système de gestion intégré avec fonctionnalités métier.</p>
+          <div class="tag-row"><span class="tag">SI</span><span class="tag">Django</span><span class="tag">Modélisation</span></div>
+          <a class="link" href="https://github.com/Bada123-creator/PGI_PME" target="_blank" rel="noopener">github.com/Bada123-creator/PGI_PME ↗</a>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="mini-title">Application web</div>
+          <h3>GoodDoctor</h3>
+          <p>Application de prise de rendez-vous avec gestion des rôles, backend Django, base MySQL et interface Bootstrap.</p>
+          <div class="tag-row"><span class="tag">Django</span><span class="tag">MySQL</span><span class="tag">Bootstrap</span></div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="mini-title">Open Data / graphes</div>
+          <h3>Réseau RATP</h3>
+          <p>Nettoyage de données publiques, modélisation d'un réseau de transport sous forme de graphe et visualisation.</p>
+          <div class="tag-row"><span class="tag">Python</span><span class="tag">NetworkX</span><span class="tag">Gephi</span></div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="mini-title">Qualité logicielle</div>
+          <h3>Marmote / MDP</h3>
+          <p>Tests automatisés en C++ avec Google Test et analyse de couverture via GCOV/LCOV dans un projet open source.</p>
+          <div class="tag-row"><span class="tag">C++</span><span class="tag">GTest</span><span class="tag">GCOV/LCOV</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <div class="eyebrow">Expérience</div>
+          <h2>La technique, mais aussi la rigueur.</h2>
+        </div>
+        <p>Mes expériences m'ont appris à travailler avec des données réelles, des contraintes concrètes et des priorités.</p>
+      </div>
+
+      <div class="experience">
+        <div class="quote reveal">
+          <p>“Une application ou un système d'IA n'est utile que si ses données sont fiables, ses choix techniques compréhensibles et son code maintenable.”</p>
+          <small>— Ma manière d'aborder un projet</small>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item reveal">
+            <span>Mai – juillet 2026</span>
+            <strong>Upskill Handball — Stagiaire Data / Qualité</strong>
+            <p>Collecte, validation, normalisation et intégration de données multi-sources ; détection et correction des incohérences.</p>
+          </div>
+          <div class="timeline-item reveal">
+            <span>Depuis avril 2025</span>
+            <strong>KFC Paris — Employé polyvalent</strong>
+            <p>Travail en équipe, relation client, rigueur opérationnelle et gestion des priorités.</p>
+          </div>
+          <div class="timeline-item reveal">
+            <span>Juillet 2023 – juin 2025</span>
+            <strong>RATP-SNCF — Agent d'accueil</strong>
+            <p>Gestion des flux, orientation du public, respect des procédures et adaptation aux imprévus.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="container reveal">
+      <div class="eyebrow">Contact</div>
+      <h2>Construisons quelque chose d'utile.</h2>
+      <p>
+        Je candidate à l'EEMI pour approfondir le développement full stack,
+        renforcer mes méthodes d'ingénierie logicielle et progresser sur l'IA appliquée.
+      </p>
+      <div class="cta-row" style="justify-content:center">
+        <a class="btn primary" href="mailto:bada46218@gmail.com">bada46218@gmail.com</a>
+        <a class="btn" href="tel:+33759445649">07 59 44 56 49</a>
+        <a class="btn" href="https://github.com/Bada123-creator" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© 2026 Bada Diop</span>
+      <span>Portfolio candidature EEMI</span>
+    </div>
+  </footer>
+
+  <script>
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach((entry)=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      })
+    },{threshold:.12});
+    revealEls.forEach(el=>observer.observe(el));
+
+    // petite animation dynamique du titre de l'onglet
+    const baseTitle = document.title;
+    window.addEventListener('blur',()=>document.title='Bada Diop — Portfolio EEMI');
+    window.addEventListener('focus',()=>document.title=baseTitle);
+  </script>
+</body>
+</html>
